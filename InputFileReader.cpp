@@ -1,7 +1,7 @@
 #include "InputFileReader.h"
 
-InputFileReader::InputFileReader(char * iFileName){
-       inputFile.open(iFileName);
+InputFileReader::InputFileReader(string iFileName){
+       inputFile.open(iFileName.c_str());
        if(!(inputFile.is_open()))
 			error="Error in opening input file!";
 }
@@ -28,6 +28,15 @@ MinPriorityQueue<Node> InputFileReader::getQueue(){
 		ret.insert(n);
 	}
 	return ret;
+}
+string InputFileReader::getString(){
+	string res;
+	while(!inputFile.eof()){
+		char c;
+		inputFile.read(&c, 1);
+		res=res+c;
+	}
+	return res;
 }
 string InputFileReader::getError(){
         return error;

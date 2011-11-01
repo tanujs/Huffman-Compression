@@ -6,6 +6,7 @@
 #include <sstream>
 #include "Node.h"
 #include "MinPriorityQueue.h"
+#include <cstring>
 
 using namespace std;
 //! Class for taking and processing a user input file.
@@ -31,7 +32,7 @@ class InputFileReader{
          *
          */
 
-        InputFileReader(char * iFileName);
+        InputFileReader(string iFileName);
 
         MinPriorityQueue<Node> getQueue();
 
@@ -46,6 +47,7 @@ class InputFileReader{
          * \return A string containing the error message
          */
         string getError();
+        string getString();
 };
 
 #endif
